@@ -1,0 +1,20 @@
+<div id="header">
+    <h1> {{name}} </h1>
+    <h2> {{description}} </h2>
+</div>
+
+<div id="runes">
+    <div class="rune-tree">
+        <h2> {{primaryRuneTree.name}} </h2>
+        <ul>
+            <li *ngFor="let rune of primaryRuneTree.runes"> {{rune}} </li>
+        </ul>
+    </div>
+            
+    <div class="rune-tree">
+        <h2> {{secondaryRuneTree.name}} </h2>
+        <ul>
+            <li *ngFor="let rune of secondaryRuneTree.runes"> {{rune}} </li>
+        </ul>
+    </div>
+</div>

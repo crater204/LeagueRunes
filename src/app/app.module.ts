@@ -1,18 +1,22 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-
 import { AppComponent } from './app.component';
+import { RuneDetailsComponent } from './components/rune_details/rune_details.component';
 
+import { RuneDetailsService } from './services/rune_details.service';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    RuneDetailsComponent
   ],
   imports: [
     BrowserModule
   ],
-  providers: [],
+  providers: [
+    RuneDetailsService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
