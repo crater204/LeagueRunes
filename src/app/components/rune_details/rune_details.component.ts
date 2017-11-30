@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { RuneTree } from '../../models/rune-tree.model';
 import { RunePage } from '../../models/rune-page.model';
 import { RuneDetailsService } from '../../services/rune_details.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'rune-details',
@@ -19,11 +20,28 @@ export class RuneDetailsComponent implements OnInit{
     constructor(private runeDetailsService: RuneDetailsService) {}
 
     ngOnInit() {
-        let runePage: RunePage = this.runeDetailsService.getRunePage(0);
-        this.name = runePage.name;
-        this.description = runePage.description;
-        this.primaryRuneTree = runePage.primaryRuneTree;
-        this.secondaryRuneTree = runePage.secondaryRuneTree;
+        this.runeDetailsService.getRunePage(0).subscribe( (value) => {
+            this.name = value.name;
+            this.description = value.description;
+            this.primaryRuneTree = value.primaryRuneTree;
+            this.secondaryRuneTree = value.secondaryRuneTree;
+        }) 
+        
+        
+        
+        /*
+        
+        
+        ((runePage)=> {
+            console.log(runePage);
+            this.name = runePage.name;
+            this.description = runePage.description;
+            this.primaryRuneTree = runePage.primaryRuneTree;
+            this.secondaryRuneTree = runePage.secondaryRuneTree;
+        });
+
+        */
+        
     }
     
 }

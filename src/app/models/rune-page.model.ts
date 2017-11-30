@@ -6,4 +6,12 @@ export class RunePage {
     description: string;
     primaryRuneTree: RuneTree;
     secondaryRuneTree: RuneTree;
+
+    constructor() {
+        this.id = -1;
+        this.name = '';
+        this.description = '';
+        this.primaryRuneTree = new RuneTree();
+        this.secondaryRuneTree = new RuneTree();        
+    }
 }
